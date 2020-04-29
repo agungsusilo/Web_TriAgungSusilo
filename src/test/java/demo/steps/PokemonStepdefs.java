@@ -2,6 +2,7 @@ package demo.steps;
 
 import demo.pages.ArticlePage;
 import demo.pages.HomePage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,11 +23,14 @@ public class PokemonStepdefs {
         homePage.inputSearch(keyword);
     }
 
-    @Then("User see article with contains {string} details and show that its {string} pokemon")
-    public void userSeeArticleWithContainsDetailsAndShowThatItsPokemon(String pokemonname, String number) {
+    @Then("User see article with contains {string} details")
+    public void userSeeArticleWithContainsDetails(String pokemonname) {
         String actual = articlePage.getPokemonName();
         Assert.assertEquals(pokemonname, actual);
+    }
 
+    @And("show that its {string} pokemon")
+    public void showThatItsPokemon(String number) {
         String numberactual = articlePage.getPokemonNumber();
         Assert.assertEquals(number, numberactual);
     }
