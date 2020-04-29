@@ -24,10 +24,10 @@ public class PokemonStepdefs {
 
     @Then("User see article with contains {string} details and show that its {string} pokemon")
     public void userSeeArticleWithContainsDetailsAndShowThatItsPokemon(String pokemonname, String number) {
-        String actual = ArticlePage.getPokemonName();
+        String actual = articlePage.getPokemonName();
         Assert.assertEquals(pokemonname, actual);
 
-        String numberactual = ArticlePage.getPokemonNumber();
+        String numberactual = articlePage.getPokemonNumber();
         Assert.assertEquals(number, numberactual);
     }
 }
